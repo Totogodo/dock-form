@@ -5,6 +5,7 @@ interface InputPros {
   style: string;
   placeHolder: string;
   required?: boolean;
+  handleChange?: any;
 }
 
 export function Input({
@@ -14,6 +15,7 @@ export function Input({
   style,
   placeHolder,
   required,
+  handleChange,
 }: InputPros) {
   return (
     <input
@@ -22,7 +24,8 @@ export function Input({
       type={type}
       className={"border rounded border-black p-1 " + style}
       placeholder={placeHolder}
-      required
+      required={required}
+      onChange={(e) => handleChange(e.target.name, e.target.value)}
     />
   );
 }
