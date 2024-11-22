@@ -1,9 +1,23 @@
-"use client";
+import { z } from "zod";
 
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+const dataSchema = z.object({
+  id: z.coerce.string(),
+  name: z.string(),
+  surname: z.string(),
+  pesel: z.coerce.string().length(11, { message: "PESEL ma 11 cyfr" }),
+  birthDate: z.string(),
+  sex: z.string(),
+  citizenship: z.string(),
+  phoneNumber: z.coerce.string(),
+  insuranceStart: z.string(),
+  insuranceEnd: z.string(),
+  productStart: z.string(),
+  productEnd: z.string(),
+});
 
 export function generateDoc(formData: FormData) {
   const entries = formData.entries();
+  const parsedData = dataSchema.parse(Object.fromEntries(entries));
   const {
     id,
     name,
@@ -17,7 +31,7 @@ export function generateDoc(formData: FormData) {
     insuranceEnd,
     productStart,
     productEnd,
-  } = Object.fromEntries(entries);
+  } = parsedData;
 
   const content = `10;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 20;285;02;02;TPA KOSZTY LECZENIA CUDZOZIEMCÓW;AL. JEROZOLIMSKIE 162;WARSZAWA;02-342;01/01/2023;31/12/2050;;1111111111;;;;;;;;;;;;;;;;;;;;;;;;;;
