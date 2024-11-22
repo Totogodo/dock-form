@@ -7,20 +7,8 @@ import { Prewiev } from "./prewiev";
 import { useState } from "react";
 
 export function FormComponent() {
-  const [isActive, setIsActive] = useState();
   const [prew, setPrew] = useState({
-    id: "",
-    name: "",
-    surname: "",
-    pesel: "",
-    birthDate: "",
     sex: "M",
-    citizenship: "",
-    phoneNumber: "",
-    insuranceStart: "",
-    insuranceEnd: "",
-    productStart: "",
-    productEnd: "",
   });
 
   const handleChange = (name: string, value: string) => {

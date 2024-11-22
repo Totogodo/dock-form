@@ -1,17 +1,17 @@
 interface PrewievProps {
   prew: {
-    id: string;
-    name: string;
-    surname: string;
-    pesel: string;
-    birthDate: string;
-    sex: string;
-    citizenship: string;
-    phoneNumber: string;
-    insuranceStart: string;
-    insuranceEnd: string;
-    productStart: string;
-    productEnd: string;
+    id?: string;
+    name?: string;
+    surname?: string;
+    pesel?: string;
+    birthDate?: string;
+    sex?: string;
+    citizenship?: string;
+    phoneNumber?: string;
+    insuranceStart?: string;
+    insuranceEnd?: string;
+    productStart?: string;
+    productEnd?: string;
   };
 }
 
