@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import { FormComponent } from "@/components/form";
-import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -27,6 +27,7 @@ export function FormComponent() {
             style="max-w-20"
             placeHolder="ID"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="name"
@@ -35,6 +36,7 @@ export function FormComponent() {
             style=""
             placeHolder="Name"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="surname"
@@ -43,6 +45,7 @@ export function FormComponent() {
             style=""
             placeHolder="Last Name"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="pesel"
@@ -51,6 +54,7 @@ export function FormComponent() {
             style="max-w-32"
             placeHolder="PESEL"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="birthDate"
@@ -59,6 +63,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="D.O.B"
             handleChange={handleChange}
+            required={true}
           />
           <Select handleChange={handleChange} value={prew.sex} />
           <Input
@@ -68,6 +73,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Kod kraju: PL"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="phoneNumber"
@@ -76,6 +82,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Numer Telefonu"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="insuranceStart"
@@ -84,6 +91,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Polisa od:"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="insuranceEnd"
@@ -92,6 +100,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Polisa do:"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="productStart"
@@ -100,6 +109,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Polisa od:"
             handleChange={handleChange}
+            required={true}
           />
           <Input
             id="productEnd"
@@ -108,6 +118,7 @@ export function FormComponent() {
             style="max-w-28"
             placeHolder="Polisa do:"
             handleChange={handleChange}
+            required={true}
           />
         </fieldset>
         <Button />

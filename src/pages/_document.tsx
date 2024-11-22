@@ -8,7 +8,6 @@ export default function Document() {
       <body className="antialiased">
         <Main />
         <NextScript />
-        <Analytics />
       </body>
     </Html>
   );
