@@ -1,8 +1,7 @@
 "use client";
 import { generateDoc } from "@/actions/generate-doc";
-import { Input } from "./input";
+import { Input, SelectInput, DateInput } from "./inputs";
 import { Button } from "./button";
-import { Select } from "./select";
 import { Prewiev } from "./prewiev";
 import { useState } from "react";
 
@@ -65,7 +64,7 @@ export function FormComponent() {
             handleChange={handleChange}
             required={true}
           />
-          <Select handleChange={handleChange} value={prew.sex} />
+          <SelectInput handleChange={handleChange} value={prew.sex} />
           <Input
             id="citizenship"
             name="citizenship"
@@ -120,6 +119,7 @@ export function FormComponent() {
             handleChange={handleChange}
             required={true}
           />
+          <DateInput />
         </fieldset>
         <Button />
       </form>

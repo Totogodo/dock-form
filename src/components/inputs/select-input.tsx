@@ -3,7 +3,7 @@ interface SelectProps {
   value: string; // The current value of the select input
 }
 
-export function Select({ handleChange, value }: SelectProps) {
+export function SelectInput({ handleChange, value }: SelectProps) {
   return (
     <select
       id="sex"
