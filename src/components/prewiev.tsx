@@ -37,10 +37,11 @@ export function Prewiev({ prew }: PrewievProps) {
 19;156;759bfe266b346a02a41ba287cc8a2456;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;`;
   return (
     <textarea
-      className="w-full rounded-lg p-2"
+      className="w-full rounded-lg p-2 resize-none"
       value={content}
       rows={5}
       readOnly
+      wrap="off"
     ></textarea>
   );
 }
