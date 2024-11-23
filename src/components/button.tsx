@@ -1,10 +1,12 @@
-export function Button() {
+interface ButtonProps {
+  btnType: "submit" | "button" | "reset";
+  innerText: string;
+  style: string;
+}
+export function Button({ btnType, innerText, style }: ButtonProps) {
   return (
-    <button
-      type="submit"
-      className="mt-2 text-xl border rounded-full px-6 py-2 bg-black text-white "
-    >
-      Create Document
+    <button type={btnType} className={"border rounded-full " + style}>
+      {innerText}
     </button>
   );
 }

@@ -55,15 +55,7 @@ export function FormComponent() {
             handleChange={handleChange}
             required={true}
           />
-          <Input
-            id="birthDate"
-            name="birthDate"
-            type="text"
-            style="max-w-28"
-            placeHolder="D.O.B"
-            handleChange={handleChange}
-            required={true}
-          />
+          <DateInput id="birthDate" name="birthDate" onChange={handleChange} />
           <SelectInput handleChange={handleChange} value={prew.sex} />
           <Input
             id="citizenship"
@@ -83,45 +75,39 @@ export function FormComponent() {
             handleChange={handleChange}
             required={true}
           />
-          <Input
+          <DateInput
             id="insuranceStart"
             name="insuranceStart"
-            type="text"
-            style="max-w-28"
-            placeHolder="Polisa od:"
-            handleChange={handleChange}
-            required={true}
+            onChange={handleChange}
           />
-          <Input
+          <DateInput
             id="insuranceEnd"
             name="insuranceEnd"
-            type="text"
-            style="max-w-28"
-            placeHolder="Polisa do:"
-            handleChange={handleChange}
-            required={true}
+            onChange={handleChange}
           />
-          <Input
+          <DateInput
             id="productStart"
             name="productStart"
-            type="text"
-            style="max-w-28"
-            placeHolder="Polisa od:"
-            handleChange={handleChange}
-            required={true}
+            onChange={handleChange}
           />
-          <Input
+          <DateInput
             id="productEnd"
             name="productEnd"
-            type="text"
-            style="max-w-28"
-            placeHolder="Polisa do:"
-            handleChange={handleChange}
-            required={true}
+            onChange={handleChange}
           />
-          <DateInput />
         </fieldset>
-        <Button />
+        <div className="flex gap-2">
+          <Button
+            btnType="submit"
+            innerText="Pobierz Plik"
+            style="px-6 py-2 bg-black text-white mt-2 text-xl"
+          />
+          <Button
+            btnType="reset"
+            innerText="Wyczyść"
+            style="px-6 py-2 mt-2 text-xl border-black"
+          />
+        </div>
       </form>
     </div>
   );
