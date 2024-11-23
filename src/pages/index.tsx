@@ -21,7 +21,7 @@ export default function Home() {
         <FormComponent />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        Footer
+        Daj mi znać czy to jest przydatne :)
       </footer>
     </div>
   );
