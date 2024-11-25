@@ -38,9 +38,10 @@ export function generateDoc(formData: object) {
 30;777;${id};${id};${name};${surname};${pesel};${handleBirth};${sex};${citizenship};;;${phoneNumber};;;;;;MI;N;;;${insuranceStart};${insuranceEnd};CG_Z195;${productStart};${productEnd};;;;;;;;;;;
 29;1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 19;156;759bfe266b346a02a41ba287cc8a2456;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;`;
-  const fileName = `${id}_IMPORT_KLC_TPA_${name} ${surname}`;
+  const fileName = `${Number(id)}_IMPORT_KLC_TPA_${name} ${surname}`;
   handleDownload(content, fileName);
 }
+
 const handleDownload = (text: string, fileName: string) => {
   // Create a Blob with the content
   const blob = new Blob([text], { type: "text/plain" });
