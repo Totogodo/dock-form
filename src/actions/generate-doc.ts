@@ -5,7 +5,7 @@ const dataSchema = z.object({
   name: z.string(),
   surname: z.string(),
   pesel: z.coerce.string().length(11, { message: "PESEL ma 11 cyfr" }),
-  birthDate: z.string(),
+  handleBirth: z.string(),
   sex: z.string(),
   citizenship: z.string(),
   phoneNumber: z.coerce.string(),
@@ -15,15 +15,16 @@ const dataSchema = z.object({
   productEnd: z.string(),
 });
 
-export function generateDoc(formData: FormData) {
-  const entries = formData.entries();
-  const parsedData = dataSchema.parse(Object.fromEntries(entries));
+export function generateDoc(formData: object) {
+  // const entries = formData.entries();
+  const parsedData = dataSchema.parse(formData);
+  console.log("🚀 ~ generateDoc ~ parsedData:", parsedData);
   const {
     id,
     name,
     surname,
     pesel,
-    birthDate,
+    handleBirth,
     sex,
     citizenship,
     phoneNumber,
@@ -32,10 +33,9 @@ export function generateDoc(formData: FormData) {
     productStart,
     productEnd,
   } = parsedData;
-
   const content = `10;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 20;285;02;02;TPA KOSZTY LECZENIA CUDZOZIEMCÓW;AL. JEROZOLIMSKIE 162;WARSZAWA;02-342;01/01/2023;31/12/2050;;1111111111;;;;;;;;;;;;;;;;;;;;;;;;;;
-30;777;${id};${id};${name};${surname};${pesel};${birthDate};${sex};${citizenship};;;${phoneNumber};;;;;;MI;N;;;${insuranceStart};${insuranceEnd};CG_Z195;${productStart};${productEnd};;;;;;;;;;;
+30;777;${id};${id};${name};${surname};${pesel};${handleBirth};${sex};${citizenship};;;${phoneNumber};;;;;;MI;N;;;${insuranceStart};${insuranceEnd};CG_Z195;${productStart};${productEnd};;;;;;;;;;;
 29;1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 19;156;759bfe266b346a02a41ba287cc8a2456;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;`;
   const fileName = `${id}_IMPORT_KLC_TPA_${name} ${surname}`;

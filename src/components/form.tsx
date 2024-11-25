@@ -7,17 +7,33 @@ import { useState } from "react";
 
 export function FormComponent() {
   const [prew, setPrew] = useState({
+    id: "",
+    name: "",
+    surname: "",
+    pesel: "",
+    handleBirth: "",
     sex: "M",
+    citizenship: "",
+    phoneNumber: "",
+    insuranceStart: "",
+    insuranceEnd: "",
+    productStart: "",
+    productEnd: "",
   });
 
-  const handleChange = (name: string, value: string) => {
+  const handleChange = (name: string, value: string | null) => {
     setPrew({ ...prew, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    generateDoc(prew);
   };
 
   return (
     <div className="container mx-auto">
       <Prewiev prew={prew} />
-      <form action={generateDoc}>
+      <form onSubmit={handleSubmit}>
         <fieldset className="flex flex-wrap gap-2">
           <Input
             id="id"
@@ -55,7 +71,11 @@ export function FormComponent() {
             handleChange={handleChange}
             required={true}
           />
-          <DateInput id="birthDate" name="birthDate" onChange={handleChange} />
+          <DateInput
+            id="handleBirth"
+            name="handleBirth"
+            onChange={handleChange}
+          />
           <SelectInput handleChange={handleChange} value={prew.sex} />
           <Input
             id="citizenship"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
@@ -6,19 +6,21 @@ import "react-calendar/dist/Calendar.css";
 type DatePickerProps = {
   id: string;
   name: string;
-  onChange: any;
+  onChange: (name: string, value: string | null) => void;
 };
 
 export function DateInput({ id, name, onChange }: DatePickerProps) {
-  function formatDate(unformattedDate: string) {
-    const [year, month, day] = unformattedDate.split("-");
-    return `${day}/${month}/${year}`;
-  }
-
-  const handleDateChange = (date: any) => {
-    if (date) {
-      const correctDate = formatDate(date);
-      onChange(name, correctDate);
+  const handleDateChange = (
+    value: Date | null | [Date | null, Date | null]
+  ) => {
+    if (value instanceof Date) {
+      onChange(name, value.toLocaleDateString("pt-br"));
+    } else if (Array.isArray(value)) {
+      const startDate = value[0]?.toLocaleDateString("pt-br") || null;
+      console.log(`Range selected: ${startDate}`);
+      onChange(name, startDate);
+    } else {
+      onChange(name, null);
     }
   };
 
@@ -27,14 +29,12 @@ export function DateInput({ id, name, onChange }: DatePickerProps) {
       <DatePicker
         id={id}
         name={name}
-        className={"bg-white p-1 border border-black rounded"}
+        className="bg-white p-1 border border-black rounded"
         format="dd-MM-yyyy"
-        onChange={(value: any) =>
-          handleDateChange(value.toISOString().split("T")[0])
-        }
-        yearPlaceholder="2024"
-        monthPlaceholder="12"
+        onChange={handleDateChange} // Pass Date or null directly
         dayPlaceholder="31"
+        monthPlaceholder="12"
+        yearPlaceholder="2024"
         openCalendarOnFocus={false}
         clearIcon={null}
         calendarIcon={null}
