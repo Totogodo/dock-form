@@ -1,16 +1,21 @@
 "use client";
 import { generateDoc } from "@/actions/generate-doc";
-import { Input, SelectInput, DateInput } from "./inputs";
-import { Button } from "./button";
+import { Input, SelectInput, DateInput } from "./ui/inputs";
+import { Button } from "./ui/button";
 import { Prewiev } from "./prewiev";
 import { useState } from "react";
+import { clsx } from "clsx";
+import { Switch } from "./ui/switch";
 
 export function FormComponent() {
+  const [toggleProductDates, setToggleProductDates] = useState(true);
+  const [togglePassport, setTogglePassport] = useState(false);
   const [prew, setPrew] = useState({
     id: "",
     name: "",
     surname: "",
     pesel: "",
+    passport: "",
     handleBirth: "",
     sex: "M",
     citizenship: "",
@@ -34,7 +39,7 @@ export function FormComponent() {
     <div className="container mx-auto">
       <Prewiev prew={prew} />
       <form onSubmit={handleSubmit}>
-        <fieldset className="flex flex-wrap gap-2">
+        <fieldset className="flex flex-wrap gap-2 items-center">
           <Input
             id="id"
             name="id"
@@ -66,10 +71,30 @@ export function FormComponent() {
             id="pesel"
             name="pesel"
             type="number"
-            style="max-w-32"
+            style={clsx(togglePassport && "hidden", "max-w-32")}
             placeHolder="PESEL"
             handleChange={handleChange}
             required={true}
+          />
+          <Input
+            id="passport"
+            name="passport"
+            type="text"
+            style={clsx(!togglePassport && "hidden", "max-w-32")}
+            placeHolder="PASZPORT"
+            handleChange={handleChange}
+            required={false}
+          />
+          <Switch
+            checked={togglePassport}
+            onCheckedChange={(checked) => {
+              setTogglePassport(!togglePassport);
+              if (checked) {
+                setPrew({ ...prew, pesel: "" });
+              } else if (!checked) {
+                setPrew({ ...prew, passport: "" });
+              }
+            }}
           />
           <DateInput
             id="handleBirth"
@@ -105,16 +130,24 @@ export function FormComponent() {
             name="insuranceEnd"
             onChange={handleChange}
           />
-          <DateInput
-            id="productStart"
-            name="productStart"
-            onChange={handleChange}
+          <Switch
+            checked={!toggleProductDates}
+            onCheckedChange={() => setToggleProductDates(!toggleProductDates)}
           />
-          <DateInput
-            id="productEnd"
-            name="productEnd"
-            onChange={handleChange}
-          />
+          <div className={clsx(toggleProductDates && "hidden", "")}>
+            <DateInput
+              id="productStart"
+              name="productStart"
+              onChange={handleChange}
+            />
+          </div>
+          <div className={clsx(toggleProductDates && "hidden", "")}>
+            <DateInput
+              id="productEnd"
+              name="productEnd"
+              onChange={handleChange}
+            />
+          </div>
         </fieldset>
         <div className="flex gap-2">
           <Button
