@@ -26,6 +26,7 @@ export function Input({
       placeholder={placeHolder}
       required={required}
       onChange={(e) => handleChange(e.target.name, e.target.value)}
+      disabled={false}
     />
   );
 }
