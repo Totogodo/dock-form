@@ -10,6 +10,7 @@ import { Switch } from "./ui/switch";
 export function FormComponent() {
   const [toggleProductDates, setToggleProductDates] = useState(true);
   const [togglePassport, setTogglePassport] = useState(false);
+  console.log("🚀 ~ FormComponent ~ togglePassport:", togglePassport);
   const [prew, setPrew] = useState({
     id: "",
     name: "",
@@ -44,6 +45,7 @@ export function FormComponent() {
             id="id"
             name="id"
             type="number"
+            input={prew.id}
             style="max-w-20"
             placeHolder="ID"
             handleChange={handleChange}
@@ -53,6 +55,7 @@ export function FormComponent() {
             id="name"
             name="name"
             type="text"
+            input={prew.name}
             style=""
             placeHolder="Name"
             handleChange={handleChange}
@@ -62,6 +65,7 @@ export function FormComponent() {
             id="surname"
             name="surname"
             type="text"
+            input={prew.surname}
             style=""
             placeHolder="Last Name"
             handleChange={handleChange}
@@ -71,19 +75,21 @@ export function FormComponent() {
             id="pesel"
             name="pesel"
             type="number"
+            input={prew.pesel}
             style={clsx(togglePassport && "hidden", "max-w-32")}
             placeHolder="PESEL"
             handleChange={handleChange}
-            required={true}
+            required={!togglePassport}
           />
           <Input
             id="passport"
             name="passport"
             type="text"
+            input={prew.passport}
             style={clsx(!togglePassport && "hidden", "max-w-32")}
             placeHolder="PASZPORT"
             handleChange={handleChange}
-            required={false}
+            required={togglePassport}
           />
           <Switch
             checked={togglePassport}
@@ -106,6 +112,7 @@ export function FormComponent() {
             id="citizenship"
             name="citizenship"
             type="text"
+            input={prew.citizenship}
             style="max-w-28"
             placeHolder="Kod kraju: PL"
             handleChange={handleChange}
@@ -115,6 +122,7 @@ export function FormComponent() {
             id="phoneNumber"
             name="phoneNumber"
             type="number"
+            input={prew.phoneNumber}
             style="max-w-28"
             placeHolder="Numer Telefonu"
             handleChange={handleChange}

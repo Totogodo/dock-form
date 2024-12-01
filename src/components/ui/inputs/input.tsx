@@ -2,6 +2,7 @@ interface InputPros {
   id: string;
   name: string;
   type: "text" | "number";
+  input: any;
   style: string;
   placeHolder: string;
   required?: boolean;
@@ -12,6 +13,7 @@ export function Input({
   id,
   name,
   type,
+  input,
   style,
   placeHolder,
   required,
@@ -22,6 +24,7 @@ export function Input({
       id={id}
       name={name}
       type={type}
+      value={input}
       className={"border rounded border-black p-1 " + style}
       placeholder={placeHolder}
       required={required}
