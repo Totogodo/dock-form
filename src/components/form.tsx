@@ -10,7 +10,6 @@ import { Switch } from "./ui/switch";
 export function FormComponent() {
   const [toggleProductDates, setToggleProductDates] = useState(true);
   const [togglePassport, setTogglePassport] = useState(false);
-  console.log("🚀 ~ FormComponent ~ togglePassport:", togglePassport);
   const [prew, setPrew] = useState({
     id: "",
     name: "",
@@ -166,6 +165,23 @@ export function FormComponent() {
           <Button
             btnType="reset"
             innerText="Wyczyść"
+            handleClick={() =>
+              setPrew({
+                id: "",
+                name: "",
+                surname: "",
+                pesel: "",
+                passport: "",
+                handleBirth: "",
+                sex: "M",
+                citizenship: "",
+                phoneNumber: "",
+                insuranceStart: "",
+                insuranceEnd: "",
+                productStart: "",
+                productEnd: "",
+              })
+            }
             style="px-6 py-2 mt-2 text-xl border-black"
           />
         </div>
