@@ -22,11 +22,11 @@ export default function Home() {
         <Instruction
           title="Jak wypełnić formularz"
           steps={[
-            "Wprowadź dane w odpowiednie pola, musisz uzupełnić wszystko.",
+            "Wprowadź dane w odpowiednie pola, musisz uzupełnić wszystko",
             "Zaznacz przełacznik po Peselu jeśli potrzebujesz wprowadzić Paszport",
-            "Wybierz daty rozpoczęcia i zakończenia ubezpieczenia, nie musisz wprowadzać 2 razy, formularz to robi za ciebie",
+            "Wybierz daty rozpoczęcia i zakończenia ubezpieczenia na samym końcu, nie musisz wprowadzać 2 razy, formularz to zrobi za ciebie",
             "Jeśli potrzebujesz wprowadzić okres obowiazywania produktu osobno zaznacz przełącznik zaraz po wprowadzonym okresie ubezpieczenia",
-            "Sprawdź podgląd i kliknij 'Pobierz Plik', aby wygenerować dokument.",
+            "Sprawdź podgląd i kliknij 'Pobierz Plik', aby wygenerować dokument",
           ]}
         />
 
