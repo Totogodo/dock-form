@@ -6,6 +6,7 @@ import { Prewiev } from "./prewiev";
 import { useState } from "react";
 import { clsx } from "clsx";
 import { Switch } from "./ui/switch";
+import { Datalist } from "./ui/datalist";
 
 export function FormComponent() {
   const [toggleProductDates, setToggleProductDates] = useState(true);
@@ -36,57 +37,57 @@ export function FormComponent() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className='container mx-auto'>
       <Prewiev prew={prew} />
       <form onSubmit={handleSubmit}>
-        <fieldset className="flex flex-wrap gap-2 items-center">
+        <fieldset className='flex flex-wrap gap-2 items-center'>
           <Input
-            id="id"
-            name="id"
-            type="number"
+            id='id'
+            name='id'
+            type='number'
             input={prew.id}
-            style="max-w-20"
-            placeHolder="ID"
+            style='max-w-20'
+            placeHolder='ID'
             handleChange={handleChange}
             required={true}
           />
           <Input
-            id="name"
-            name="name"
-            type="text"
+            id='name'
+            name='name'
+            type='text'
             input={prew.name}
-            style=""
-            placeHolder="Name"
+            style=''
+            placeHolder='Name'
             handleChange={handleChange}
             required={true}
           />
           <Input
-            id="surname"
-            name="surname"
-            type="text"
+            id='surname'
+            name='surname'
+            type='text'
             input={prew.surname}
-            style=""
-            placeHolder="Last Name"
+            style=''
+            placeHolder='Last Name'
             handleChange={handleChange}
             required={true}
           />
           <Input
-            id="pesel"
-            name="pesel"
-            type="number"
+            id='pesel'
+            name='pesel'
+            type='number'
             input={prew.pesel}
             style={clsx(togglePassport && "hidden", "max-w-32")}
-            placeHolder="PESEL"
+            placeHolder='PESEL'
             handleChange={handleChange}
             required={!togglePassport}
           />
           <Input
-            id="passport"
-            name="passport"
-            type="text"
+            id='passport'
+            name='passport'
+            type='text'
             input={prew.passport}
             style={clsx(!togglePassport && "hidden", "max-w-32")}
-            placeHolder="PASZPORT"
+            placeHolder='PASZPORT'
             handleChange={handleChange}
             required={togglePassport}
           />
@@ -102,39 +103,40 @@ export function FormComponent() {
             }}
           />
           <DateInput
-            id="handleBirth"
-            name="handleBirth"
+            id='handleBirth'
+            name='handleBirth'
             onChange={handleChange}
           />
           <SelectInput handleChange={handleChange} value={prew.sex} />
           <Input
-            id="citizenship"
-            name="citizenship"
-            type="text"
+            id='citizenship'
+            name='citizenship'
+            type='text'
             input={prew.citizenship}
-            style="max-w-28"
-            placeHolder="Kod kraju: PL"
+            style='max-w-28'
+            placeHolder='Kod kraju: PL'
             handleChange={handleChange}
             required={true}
           />
+          <Datalist id='myInput' />
           <Input
-            id="phoneNumber"
-            name="phoneNumber"
-            type="number"
+            id='phoneNumber'
+            name='phoneNumber'
+            type='number'
             input={prew.phoneNumber}
-            style="max-w-28"
-            placeHolder="Numer Telefonu"
+            style='max-w-28'
+            placeHolder='Numer Telefonu'
             handleChange={handleChange}
             required={true}
           />
           <DateInput
-            id="insuranceStart"
-            name="insuranceStart"
+            id='insuranceStart'
+            name='insuranceStart'
             onChange={handleChange}
           />
           <DateInput
-            id="insuranceEnd"
-            name="insuranceEnd"
+            id='insuranceEnd'
+            name='insuranceEnd'
             onChange={handleChange}
           />
           <Switch
@@ -143,28 +145,28 @@ export function FormComponent() {
           />
           <div className={clsx(toggleProductDates && "hidden", "")}>
             <DateInput
-              id="productStart"
-              name="productStart"
+              id='productStart'
+              name='productStart'
               onChange={handleChange}
             />
           </div>
           <div className={clsx(toggleProductDates && "hidden", "")}>
             <DateInput
-              id="productEnd"
-              name="productEnd"
+              id='productEnd'
+              name='productEnd'
               onChange={handleChange}
             />
           </div>
         </fieldset>
-        <div className="flex gap-2">
+        <div className='flex gap-2'>
           <Button
-            btnType="submit"
-            innerText="Pobierz Plik"
-            style="px-6 py-2 bg-black text-white mt-2 text-xl"
+            btnType='submit'
+            innerText='Pobierz Plik'
+            style='px-6 py-2 bg-black text-white mt-2 text-xl'
           />
           <Button
-            btnType="reset"
-            innerText="Wyczyść"
+            btnType='reset'
+            innerText='Wyczyść'
             handleClick={() =>
               setPrew({
                 id: "",
@@ -182,7 +184,7 @@ export function FormComponent() {
                 productEnd: "",
               })
             }
-            style="px-6 py-2 mt-2 text-xl border-black"
+            style='px-6 py-2 mt-2 text-xl border-black'
           />
         </div>
       </form>
