@@ -107,8 +107,12 @@ export function FormComponent() {
             name='handleBirth'
             onChange={handleChange}
           />
-          <SelectInput handleChange={handleChange} value={prew.sex} />
-          <Input
+          <SelectInput
+            handleChange={handleChange}
+            value={prew.sex}
+            style='min-h-9'
+          />
+          {/* <Input
             id='citizenship'
             name='citizenship'
             type='text'
@@ -117,8 +121,15 @@ export function FormComponent() {
             placeHolder='Kod kraju: PL'
             handleChange={handleChange}
             required={true}
+          /> */}
+          <Datalist
+            id='citizenship'
+            name='citizenship'
+            type='text'
+            placeHolder='Wyszukaj kraj'
+            input={prew.citizenship}
+            handleChange={handleChange}
           />
-          <Datalist id='myInput' />
           <Input
             id='phoneNumber'
             name='phoneNumber'
