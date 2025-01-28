@@ -2,10 +2,10 @@ import { z } from "zod";
 
 const dataSchema = z.object({
   id: z.coerce.string(),
-  name: z.string(),
-  surname: z.string(),
+  name: z.string().trim(),
+  surname: z.string().trim(),
   pesel: z.coerce.string(),
-  passport: z.string(),
+  passport: z.string().trim(),
   handleBirth: z.string(),
   sex: z.string(),
   citizenship: z.string(),
